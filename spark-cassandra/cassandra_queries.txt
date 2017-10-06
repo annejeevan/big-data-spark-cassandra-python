@@ -1,0 +1,18 @@
+create KEYSPACE demo WITH replication =
+{'class': 'SimpleStrategy', 'replication_factor': 1};
+use demo ;
+
+
+create TABLE user ( name text PRIMARY KEY,
+favorite_food text );
+insert into user (name, fav_food) values ('jon', 'bacon');
+insert into user (name, fav_food) values ('luke', 'pie');
+insert into user (name, fav_food) values ('patrick', 'pizza');
+insert into user (name, fav_food) values ('rachel', 'pizza');
+
+
+create TABLE favorite_foods ( food text, name text,
+primary key (food, name));
+
+
+
